@@ -1,0 +1,1 @@
+select * from customers limit 0,30;
