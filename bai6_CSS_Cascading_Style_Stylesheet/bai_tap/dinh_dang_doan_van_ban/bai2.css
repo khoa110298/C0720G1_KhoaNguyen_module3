@@ -1,0 +1,25 @@
+#chu-xanh {
+    color: aqua;
+}
+.chu-dam {
+    font-weight: bold;
+}
+.chu-xanh {
+    color: blue;
+}
+.thut-vo {
+    text-indent: 50px;
+}
+body {
+    text-align: justify;
+    width: 50%;
+}
+.can-tren{
+    margin-top: -5px;
+}
+.can_duoi{
+    margin-bottom: -10px;
+}
+.khoang-cach-tu{
+    word-spacing: 10px;
+}
