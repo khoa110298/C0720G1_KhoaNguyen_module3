@@ -8,12 +8,12 @@ a{
 }
 .tren_mot_hang{
     width: 100%;
-    display:inline-block ;
+    display:inline-block;
 }
 .ben_trai{
     float: left;
     width: 50%;
-    height: 500px;
+    height: 510px;
     background-color: lightgoldenrodyellow;
 }
 .ben_phai{
