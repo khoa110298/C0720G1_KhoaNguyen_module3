@@ -134,11 +134,12 @@ left join dichvudikem on hopdongchitiet.idDichVuDiKem = dichvudikem.iddichvudike
 
 -- câu 7
 
- select dichvu.iddichvu, dichvu.tendichvu,dichvu.dientich,songuoitoida,dichvu.chiphithue,loaidichvu.tenloaidichvu
+ select dichvu.iddichvu, dichvu.tendichvu,dichvu.dientich,songuoitoida,dichvu.chiphithue,loaidichvu.tenloaidichvu,ngaylamhopdong
  from khachhang join hopdong on khachhang.idKhachHang = hopdong.idKhachHang
  join dichvu on hopdong.iddichvu = dichvu.iddichvu
- join loaidichvu on dichvu.idLoaiDichVu = loaidichvu.idLoaiDichVu  where (not year(ngaylamhopdong) = 2019) and
- (year(ngaylamhopdong) = 2018);
+ join loaidichvu on dichvu.idLoaiDichVu = loaidichvu.idLoaiDichVu  where
+ (year(ngaylamhopdong) = 2018) and
+ ( year(ngaylamhopdong) <> 2019);
   
 -- câu 8
 
@@ -155,7 +156,7 @@ select month(hopdong.ngaylamhopdong) as thang,count(month(ngaylamhopdong)) as so
 from hopdong where
 year(ngaylamhopdong) = 2019
 group by month(ngaylamhopdong)
-order by month(ngaylamhopdong); 
+order by month(ngaylamhopdong);
 
 -- câu 10
 
@@ -192,25 +193,27 @@ and not (year(ngaylamhopdong) = 2019 and month(ngaylamhopdong) in(1,2,3,4,5,6));
 
 -- câu 13 
 
-select dichvudikem.iddichvudikem,dichvudikem.tendichvudikem,dichvudikem.gia,dichvudikem.donvi,
+select * FROM 
+(select dichvudikem.iddichvudikem,dichvudikem.tendichvudikem,dichvudikem.gia,dichvudikem.donvi,
 dichvudikem.trangthaikhadung,count(tendichvudikem) as solansudung from khachhang 
 join hopdong on khachhang.idKhachHang = hopdong.idKhachHang
 join hopdongchitiet on hopdong.idhopdong = hopdongchitiet.idhopdong
-join dichvudikem on hopdongchitiet.idDichVuDiKem = dichvudikem.iddichvudikem where 
+join dichvudikem on hopdongchitiet.idDichVuDiKem = dichvudikem.iddichvudikem 
+group by tendichvudikem
+order by count(tendichvudikem) desc) as abc
+where solansudung = 
 (select  count(tendichvudikem) from khachhang 
 join hopdong on khachhang.idKhachHang = hopdong.idKhachHang
 join hopdongchitiet on hopdong.idhopdong = hopdongchitiet.idhopdong
 join dichvudikem on hopdongchitiet.idDichVuDiKem = dichvudikem.iddichvudikem
 group by tendichvudikem
-order by count(tendichvudikem) desc limit 1)
-group by tendichvudikem
-order by count(tendichvudikem) desc;
+order by count(tendichvudikem) desc limit 1);
 
 -- câu 14
  
- select hopdong.idhopdong, loaidichvu.tenloaidichvu,dichvudikem.tendichvudikem,
- count(hopdongchitiet.iddichvudikem) as solansudung from khachhang
- join hopdong on khachhang.idKhachHang = hopdong.idKhachHang
+select hopdong.idhopdong, loaidichvu.tenloaidichvu,dichvudikem.tendichvudikem,
+count(hopdongchitiet.iddichvudikem) as solansudung from khachhang
+join hopdong on khachhang.idKhachHang = hopdong.idKhachHang
 join dichvu on hopdong.iddichvu = dichvu.iddichvu
 join loaidichvu on dichvu.idLoaiDichVu = loaidichvu.idLoaiDichVu
 join hopdongchitiet on hopdong.idhopdong = hopdongchitiet.idhopdong 
@@ -218,5 +221,3 @@ join dichvudikem on hopdongchitiet.iddichvudikem = dichvudikem.iddichvudikem
 group by hopdongchitiet.iddichvudikem
 having count(hopdongchitiet.iddichvudikem) = 1
 order by idhopdong;
- 
-
