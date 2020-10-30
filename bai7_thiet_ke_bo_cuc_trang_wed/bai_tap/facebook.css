@@ -1,0 +1,111 @@
+#menufb{
+    background-color: #333333;
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    float: left;
+}
+
+body{
+    margin-top:0;
+    margin-left:0;
+}
+#leftfb{
+    position: absolute;
+    top:10px;
+    left: 20px;
+}
+form.example input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 50%;
+    background: #f1f1f1;
+}
+form.example button {
+    float: left;
+    width: 15%;
+    padding: 10px;
+    background: blue;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+}
+#seach{
+    border-radius: 30%;
+    position: absolute;
+    top: 10px;
+    left: 100px;
+    bottom: 7.5px;
+}
+#center {
+    margin-top: 0;
+    float: left;
+    width: 100%;
+    min-height:1000px ;
+}
+#sodebar {
+    background-color:black;
+    float: left;
+    width: 25%;
+    min-height:700px;
+    position: relative;
+    top:60px ;
+}
+#content{
+    position: relative;
+    top:60px;
+    float: right;
+    width: 75%;
+    min-height:700px ;
+}
+.trangchu{
+    position: absolute;
+    top: 10px;
+    left: 400px;
+    text-decoration: none;
+}
+.trangchu a{
+    text-decoration: none;
+}
+.h2 {
+    position:relative;
+    left:70px;
+}
+.h3{
+    position:relative;
+    left:140px;
+}
+.h4{
+    position:relative;
+    left:210px;
+}
+.h5{
+    position:relative;
+    left:280px;
+}
+.h6{
+    position: relative;
+    left: 450px;
+}
+.lap{
+    position: absolute;
+    background-color: yellow;
+    border-radius: 30px;
+    top: 30px;
+    width: 110px;
+    height: 300px;
+}
+li a{
+    text-decoration: none;
+    color: #f1f1f1;
+}
+ul{
+    list-style: none;
+}
+li{
+    margin-top: 20px;
+}
