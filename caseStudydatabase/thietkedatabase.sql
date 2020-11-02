@@ -138,8 +138,10 @@ left join dichvudikem on hopdongchitiet.idDichVuDiKem = dichvudikem.iddichvudike
  from khachhang join hopdong on khachhang.idKhachHang = hopdong.idKhachHang
  join dichvu on hopdong.iddichvu = dichvu.iddichvu
  join loaidichvu on dichvu.idLoaiDichVu = loaidichvu.idLoaiDichVu  where
- (year(ngaylamhopdong) = 2018) and
- ( year(ngaylamhopdong) <> 2019);
+ (year(ngaylamhopdong) = 2018) and hopdong.idhopdong not in
+ (select hopdong.idKhachHang from 
+ khachhang join hopdong on khachhang.idKhachHang = hopdong.idKhachHang where 
+ (year(ngaylamhopdong) = 2019));
   
 -- câu 8
 
@@ -221,3 +223,54 @@ join dichvudikem on hopdongchitiet.iddichvudikem = dichvudikem.iddichvudikem
 group by hopdongchitiet.iddichvudikem
 having count(hopdongchitiet.iddichvudikem) = 1
 order by idhopdong;
+
+-- câu 15
+
+select nhanvien.idNhanVien,nhanvien.hoten,trinhdon.tentrinhdon,
+bophan.tenbophan,nhanvien.SDT,nhanvien.diachi,count(hopdong.idNhanVien) as solanlamhopdong from nhanvien
+join trinhdon on nhanvien.idTrinhDon = trinhdon.idTrinhDon
+join bophan on nhanvien.idbophan = bophan.idbophan
+join hopdong on nhanvien.idNhanVien = hopdong.idNhanVien
+where year(ngaylamhopdong) between 2018 and 2019 
+group by hopdong.idNhanVien having
+solanlamhopdong <=3;
+ 
+-- câu 16 (chưa)
+
+delete from nhanvien where nhanvien.idNhanVien not in
+(select hopdong.idNhanVien from nhanvien join hopdong on
+nhanvien.idNhanVien = hopdong.idNhanVien where year(ngaylamhopdong) between 2017 and 2019
+group by nhanvien.idNhanVien);
+
+-- câu17 (chưa)
+
+update khachhang set khachhang.idLoaiKhach = 1 where (khachhang.idLoaiKhach  = 2 and khachhang.idKhachHang  in
+(select khachhang.idkhachhang from khachhang 
+join hopdong on khachhang.idKhachHang = hopdong.idKhachHang 
+where tongtien >10000000 
+group by khachhang.idKhachHang));
+
+-- câu18 (chưa)
+ 
+ delete from khachhang where khachhang.idKhachHang in 
+ (select hopdong.idKhachHang from khachhang join hopdong on
+ khachhang.idKhachHang = hopdong.idKhachHang where year(ngaylamhopdong) > 2016
+ group by hopdong.idKhachHang);
+
+-- câu 19 chưa
+
+update dichvudikem set dichvudikem.gia = dichvudikem.gia*2 where
+dichvudikem.iddichvudikem in 
+(select hopdongchitiet.idDichVuDiKem from dichvudikem
+join hopdongchitiet on dichvudikem.iddichvudikem = hopdongchitiet.iddichvudikem
+group by hopdongchitiet.iddichvudikem
+having count(hopdongchitiet.iddichvudikem) > 1);
+
+-- câu 20
+
+select nhanvien.idnhanvien,nhanvien.hoten,nhanvien.email,nhanvien.SDT,
+nhanvien.ngaysinh,nhanvien.diachi from nhanvien
+union 
+select khachhang.idkhachhang,khachhang.hoten,khachhang.email,khachhang.SDT,
+khachhang.nagysinh,khachhang.diachi from khachhang;
+
