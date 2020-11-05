@@ -221,7 +221,7 @@ join loaidichvu on dichvu.idLoaiDichVu = loaidichvu.idLoaiDichVu
 join hopdongchitiet on hopdong.idhopdong = hopdongchitiet.idhopdong 
 join dichvudikem on hopdongchitiet.iddichvudikem = dichvudikem.iddichvudikem
 group by hopdongchitiet.iddichvudikem
-having count(hopdongchitiet.iddichvudikem) = 1
+having solansudung = 1
 order by idhopdong;
 
 -- câu 15
@@ -235,36 +235,37 @@ where year(ngaylamhopdong) between 2018 and 2019
 group by hopdong.idNhanVien having
 solanlamhopdong <=3;
  
--- câu 16 (chưa)
+-- câu 16
 
-delete from nhanvien where nhanvien.idNhanVien not in
-(select hopdong.idNhanVien from nhanvien join hopdong on
+delete from nhanvien where nhanvien.idNhanVien not in (select xyz from
+(select hopdong.idNhanVien as xyz from nhanvien join hopdong on
 nhanvien.idNhanVien = hopdong.idNhanVien where year(ngaylamhopdong) between 2017 and 2019
-group by nhanvien.idNhanVien);
+group by nhanvien.idNhanVien) as abc);
 
--- câu17 (chưa)
+-- câu17 
 
-update khachhang set khachhang.idLoaiKhach = 1 where (khachhang.idLoaiKhach  = 2 and khachhang.idKhachHang  in
-(select khachhang.idkhachhang from khachhang 
+update khachhang set khachhang.idLoaiKhach = 1 where khachhang.idLoaiKhach  = 2 and khachhang.idKhachHang  in (select xyz from
+(select khachhang.idkhachhang as xyz from khachhang 
 join hopdong on khachhang.idKhachHang = hopdong.idKhachHang 
-where tongtien >10000000 
-group by khachhang.idKhachHang));
+where tongtien > 10000000 and year(ngaylamhopdong) = 2019
+group by khachhang.idKhachHang) as abc);
 
--- câu18 (chưa)
+-- câu18
  
- delete from khachhang where khachhang.idKhachHang in 
- (select hopdong.idKhachHang from khachhang join hopdong on
- khachhang.idKhachHang = hopdong.idKhachHang where year(ngaylamhopdong) > 2016
- group by hopdong.idKhachHang);
+ delete from khachhang where khachhang.idKhachHang in (select xyz from 
+ (select hopdong.idKhachHang as xyz from khachhang join hopdong on
+ khachhang.idKhachHang = hopdong.idKhachHang 
+ where year(ngaylamhopdong) > 2016
+ group by hopdong.idKhachHang) as abc);
 
--- câu 19 chưa
+-- câu 19 
 
-update dichvudikem set dichvudikem.gia = dichvudikem.gia*2 where
-dichvudikem.iddichvudikem in 
-(select hopdongchitiet.idDichVuDiKem from dichvudikem
+update dichvudikem set dichvudikem.gia = dichvudikem.gia*2 
+where dichvudikem.iddichvudikem in (select xyz from 
+(select hopdongchitiet.idDichVuDiKem as xyz from dichvudikem
 join hopdongchitiet on dichvudikem.iddichvudikem = hopdongchitiet.iddichvudikem
 group by hopdongchitiet.iddichvudikem
-having count(hopdongchitiet.iddichvudikem) > 1);
+having count(hopdongchitiet.iddichvudikem) > 1) as abc);
 
 -- câu 20
 
@@ -273,4 +274,3 @@ nhanvien.ngaysinh,nhanvien.diachi from nhanvien
 union 
 select khachhang.idkhachhang,khachhang.hoten,khachhang.email,khachhang.SDT,
 khachhang.nagysinh,khachhang.diachi from khachhang;
-

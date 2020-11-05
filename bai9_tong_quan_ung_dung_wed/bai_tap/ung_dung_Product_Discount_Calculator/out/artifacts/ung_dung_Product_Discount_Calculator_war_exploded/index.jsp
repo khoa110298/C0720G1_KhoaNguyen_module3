@@ -34,7 +34,7 @@
           <input type="text" class="form-control" id="Discount" placeholder="text" name="DiscountPercent">
         </div>
 
-        <button style="background-color: lightslategray" type="submit" class="btn btn-primary">Converter</button>
+        <button style="background-color: lightslategray" type="submit" class="btn btn-primary">Calculate Discount</button>
       </form>
     </div>
   </form>

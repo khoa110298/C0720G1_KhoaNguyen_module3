@@ -14,16 +14,16 @@ public class ProductDiscountCalculatorServlet extends HttpServlet {
         float Discount_Percent = Float.parseFloat(request.getParameter("DiscountPercent"));
 
 
-        float Discount_Amount = List_Price * Discount_Percent * 0.01f;
+        float Discount_Amount = List_Price * Discount_Percent / 100;
         float Discount_Price = List_Price - Discount_Amount;
 
         PrintWriter writer = response.getWriter();
         writer.println("<html>");
         writer.println("<h1>Product Description: "+Product_Description+"</h1>");
-        writer.println("<h1>List Price: " + List_Price+ "</h1>");
-        writer.println("<h1>Discount Percent: " + Discount_Percent+ "</h1>");
-        writer.println("<h1>Discount Amount: " + Discount_Amount+ "</h1>");
-        writer.println("<h1>Discount Amount: " + Discount_Price+ "</h1>");
+        writer.println("<h1>List Price: " + List_Price + "</h1>");
+        writer.println("<h1>Discount Percent: " + Discount_Percent + "%</h1>");
+        writer.println("<h1>Discount Amount: " + Discount_Amount + "</h1>");
+        writer.println("<h1>Discount Price: " + Discount_Price + "</h1>");
         writer.println("</html>");
     }
 
