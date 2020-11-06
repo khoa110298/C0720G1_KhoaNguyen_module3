@@ -20,6 +20,7 @@ public class CustomerServiceImpl implements CustomerService {
         customers.put(5,new Customer(5, "Sophia", "sophia@codegym.vn", "Vinh"));
         customers.put(6, new Customer(6, "Rose", "rose@codegym.vn", "Newyork"));
     }
+
     public List<Customer> findAll() {
         return new ArrayList<>(customers.values());
     }

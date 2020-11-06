@@ -92,7 +92,7 @@ public class CustomerServlet extends HttpServlet {
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String address = request.getParameter("address");
-        int id = (int) Math.random()*1000;
+        int id  = customerService.findAll().get(customerService.findAll().size() -1).getId() + 1;
 
         Customer customer = new Customer(id,name,email,address);
         customerService.save(customer);

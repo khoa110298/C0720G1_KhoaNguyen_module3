@@ -21,10 +21,5 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="Tomcat 9.0.39" level="application_server_libraries" />
     <orderEntry type="library" name="jstl-1.2" level="project" />
-    <orderEntry type="library" name="jstl-api-1.2" level="project" />
-    <orderEntry type="library" name="jstl-impl-1.2" level="project" />
-    <orderEntry type="library" name="mysql-connector-java-8.0.17" level="project" />
-    <orderEntry type="library" name="servlet-api-2.5-6.0.2" level="project" />
-    <orderEntry type="library" name="jsp-api-2.1-6.0.2" level="project" />
   </component>
 </module>
