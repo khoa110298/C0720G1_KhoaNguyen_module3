@@ -39,8 +39,8 @@
             <td><c:out value="${product.describe}"/></td>
             <td><c:out value="${product.producer}"/></td>
             <td>
-                <a href="/home?action=edit&=${product.id}" class="btn btn-warning">Edit</a>
-                <a href="/home?action=delete&=${product.id}" class="btn btn-danger">Delete</a>
+                <a href="/home?action=edit&id=${product.id}" class="btn btn-warning">Edit</a>
+                <a href="/home?action=delete&id=${product.id}" class="btn btn-danger">Delete</a>
             </td>
         </tr>
     </c:forEach>

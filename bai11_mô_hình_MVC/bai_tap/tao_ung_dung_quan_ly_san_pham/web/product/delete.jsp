@@ -23,19 +23,19 @@
         <table>
             <tr>
                 <td>name product: </td>
-                <td>${requestScope["product"].getName()}</td>
+                <td><c:out value="${product.nameProduct}"/></td>
             </tr>
             <tr>
                 <td>price: </td>
-                <td>${requestScope["product"].getPrice()}</td>
+                <td><c:out value="${product.price}"/></td>
             </tr>
             <tr>
                 <td>describe: </td>
-                <td>${requestScope["product"].getDescribe()}</td>
+                <td><c:out value="${product.describe}"/></td>
             </tr>
             <tr>
                 <td>producer: </td>
-                <td>${requestScope["product"].getProducer()}</td>
+                <td><c:out value="${product.producer}"/></td>
             </tr>
             <tr>
                 <td><input type="submit" value="Delete product"></td>
