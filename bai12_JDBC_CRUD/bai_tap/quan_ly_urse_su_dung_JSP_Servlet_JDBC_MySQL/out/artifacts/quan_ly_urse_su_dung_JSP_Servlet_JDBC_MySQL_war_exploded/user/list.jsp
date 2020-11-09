@@ -36,7 +36,7 @@
             <th scope="col">ID</th>
             <th scope="col">Name</th>
             <th scope="col">Email</th>
-            <th scope="col">Email</th>
+            <th scope="col">country</th>
             <th scope="col">Actions</th>
         </tr>
         </thead>
