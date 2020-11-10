@@ -51,8 +51,13 @@
                 <td><c:out value="${student.phoneNumber}"/></td>
                 <td><c:out value="${student.address}"/></td>
                 <td><c:out value="${student.gender}"/></td>
-                <td><a  class="btn btn-outline-danger" href="/student?action=delete&id=${student.getId()}">delete</a></td>
-                <td><button class="btn btn-outline-primary" onclick="getEdit(${student.id},'${student.name}','${student.phoneNumber}','${student.address}','${student.gender}')"
+<%--                <td><a  class="btn btn-outline-danger" href="/student?action=delete&id=${student.getId()}">delete</a></td>--%>
+<%--                <td><a  class="btn btn-outline-primary" href="/student?action=edit&id=${student.getId()}">edit</a></td>--%>
+
+                <td><button type="button" class="btn btn-outline-danger" onclick="getDelete(${student.id})"
+                            data-toggle="modal" data-target="#modelDelete">delete</button></td>
+                <td><button class="btn btn-outline-primary"
+                            onclick="getEdit(${student.id},'${student.name}','${student.phoneNumber}','${student.address}','${student.gender}')"
                             data-toggle="modal" data-target="#modelEdit">edit</button></td>
             </tr>
         </c:forEach>
@@ -63,7 +68,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Modal title</h5>
+                <h5 class="modal-title">student information</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -83,8 +88,8 @@
                 <input type="text" class="form-control" name="gender" id="genderStudent" value="">
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
+                <button type="submit" class="btn btn-primary">ok</button>
             </div>
             </form>
         </div>
@@ -92,9 +97,41 @@
 </div>
 
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<!-- Modal -->
+<div class="modal fade" id="modelDelete" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">delete student</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="/student" method="get">
+                <input type="hidden"  name="action" value="delete">
+                <input type="hidden"  name="id" value="" id="idStudentDelete">
+            <div class="modal-body">
+                are you sure?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
+                <button type="submit" class="btn btn-primary">ok</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 </body>
 <script>
     function getEdit(id,name,phone,adress,gender) {
@@ -103,6 +140,9 @@
         $('#phoneStudent').val(phone);
         $('#addressStudent').val(adress);
         $('#genderStudent').val(gender);
+    }
+    function getDelete(id) {
+        $('#idStudentDelete').val(id);
     }
 </script>
 </html>

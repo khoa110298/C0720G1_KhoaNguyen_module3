@@ -91,11 +91,12 @@ public class StudentServlet extends HttpServlet {
                     showCreateStudent(request,response);
                     break;
                 case "edit":
-                    showEditStudentModal(request,response);
+                    editStudentModal(request,response);
 //                showEditStudent(request,response);
                     break;
                 case "delete":
-                    showDeleteStudent(request, response);
+                    deleteStudentModal(request,response);
+//                    showDeleteStudent(request, response);
                     break;
                 default:
                     listStudent(request, response);
@@ -107,7 +108,13 @@ public class StudentServlet extends HttpServlet {
         }
     }
 
-    private void showEditStudentModal(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+    private void deleteStudentModal(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        studentDAO.deleteStudent(id);
+        listStudent(request,response);
+    }
+
+    private void editStudentModal(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("name");
         String phoneNumber = request.getParameter("phoneNumber");
