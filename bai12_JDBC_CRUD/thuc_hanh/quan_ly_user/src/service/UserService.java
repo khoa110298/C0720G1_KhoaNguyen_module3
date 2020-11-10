@@ -48,4 +48,19 @@ public class UserService implements IUserService{
     public void insertUserStore(User user) throws SQLException {
         iUserDAO.insertUserStore(user);
     }
+
+    @Override
+    public void addUserTransaction(User user, int[] permisions) {
+        iUserDAO.addUserTransaction(user,permisions);
+    }
+
+    @Override
+    public void insertUpdateWithoutTransaction() {
+        iUserDAO.insertUpdateWithoutTransaction();
+    }
+
+    @Override
+    public void insertUpdateUseTransaction() {
+        iUserDAO.insertUpdateUseTransaction();
+    }
 }
