@@ -14,7 +14,6 @@
 </head>
 <body>
 <center>
-    <h1>User Manager</h1>
     <h2>
         <a href="/users"> BACK TO LIST USER</a>
     </h2>
