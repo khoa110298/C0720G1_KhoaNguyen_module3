@@ -59,12 +59,11 @@ public class StudentServlet extends HttpServlet {
     }
 
     private void inserStudent(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
-        int id = studentDAO.selectAllStudent().get(studentDAO.selectAllStudent().size()-1).getId()+1;
         String name = request.getParameter("name");
         String phoneNumber = request.getParameter("phoneNumber");
         String address = request.getParameter("address");
         String gender = request.getParameter("gender");
-        Student newStudent = new Student(id, name, phoneNumber, address,gender);
+        Student newStudent = new Student(name, phoneNumber, address,gender);
         studentDAO.inserStudent(newStudent);
         listStudent(request,response);
 
@@ -95,8 +94,8 @@ public class StudentServlet extends HttpServlet {
 //                showEditStudent(request,response);
                     break;
                 case "delete":
-                    deleteStudentModal(request,response);
-//                    showDeleteStudent(request, response);
+//                    deleteStudentModal(request,response);
+                    showDeleteStudent(request, response);
                     break;
                 default:
                     listStudent(request, response);

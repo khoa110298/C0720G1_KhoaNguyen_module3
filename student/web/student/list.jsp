@@ -16,11 +16,8 @@
 <body>
 <nav class="navbar navbar-light bg-light">
     <form method="post" action="/student" class="ml-auto row">
-<%--        <input type="hidden" name="action" value="seach">--%>
-<%--        <input type="text" name="name" >--%>
-<%--        <button type="submit">Search</button>--%>
         <input type="submit"  class="btn btn-info" value="seach" name="action">
-        <input type="text" width="10" style="width: 400px" class="form-control col-6" name="name">
+        <input type="text" width="40"  class="form-control col-6" name="name">
     </form>
 </nav>
 <center>
@@ -51,11 +48,11 @@
                 <td><c:out value="${student.phoneNumber}"/></td>
                 <td><c:out value="${student.address}"/></td>
                 <td><c:out value="${student.gender}"/></td>
-<%--                <td><a  class="btn btn-outline-danger" href="/student?action=delete&id=${student.getId()}">delete</a></td>--%>
+                <td><a  class="btn btn-outline-danger" href="/student?action=delete&id=${student.getId()}">delete</a></td>
 <%--                <td><a  class="btn btn-outline-primary" href="/student?action=edit&id=${student.getId()}">edit</a></td>--%>
 
-                <td><button type="button" class="btn btn-outline-danger" onclick="getDelete(${student.id})"
-                            data-toggle="modal" data-target="#modelDelete">delete</button></td>
+<%--                <td><button type="button" class="btn btn-outline-danger" onclick="getDelete(${student.id})"--%>
+<%--                            data-toggle="modal" data-target="#modelDelete">delete</button></td>--%>
                 <td><button class="btn btn-outline-primary"
                             onclick="getEdit(${student.id},'${student.name}','${student.phoneNumber}','${student.address}','${student.gender}')"
                             data-toggle="modal" data-target="#modelEdit">edit</button></td>

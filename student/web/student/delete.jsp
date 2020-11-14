@@ -14,15 +14,20 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-<h1>Delete customer</h1>
+<h1>Delete student</h1>
 <p>
-    <a href="/student">Back to student list</a>
+    <a href="/student?action=delete">Back to student list</a>
 </p>
 <form method="post">
     <h3>Are you sure?</h3>
     <fieldset>
+<%--        <input type="hidden" name="action" value="delete">--%>
         <legend>student information</legend>
         <table>
+<%--            <tr>--%>
+<%--                <td>ID: </td>--%>
+<%--                <td ><input name="id" value="${student.getId()}"></td>--%>
+<%--            </tr>--%>
             <tr>
                 <td>Name: </td>
                 <td>${student.name}</td>
@@ -40,7 +45,7 @@
                 <td>${student.gender}</td>
             </tr>
             <tr>
-                <td><input type="submit" class="btn btn-outline-danger" value="Delete student   "></td>
+                <td><input type="submit" class="btn btn-outline-danger" value="Delete student"></td>
                 <td><a type="button" class="btn btn-outline-primary" href="/student">cancel</a></td>
             </tr>
         </table>

@@ -17,6 +17,10 @@
 </p>
 <table>
     <tr>
+        <td>id: </td>
+        <td>${requestScope["customer"].getId()}</td>
+    </tr>
+    <tr>
         <td>Name: </td>
         <td>${requestScope["customer"].getName()}</td>
     </tr>

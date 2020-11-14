@@ -17,7 +17,12 @@ public class Student {
         this.address = address;
         this.gender = gender;
     }
-
+    public Student( String name, String phoneNumber, String address, String gender) {
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.gender = gender;
+    }
     public int getId() {
         return id;
     }
