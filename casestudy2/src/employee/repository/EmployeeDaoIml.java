@@ -1,6 +1,5 @@
 package employee.repository;
 
-import customer.model.Customer;
 import employee.model.Employee;
 
 import java.sql.*;
@@ -14,9 +13,9 @@ public class EmployeeDaoIml implements EmployeeDao {
     private String jdbcPassword = "12345678";
 
     private static final String INSERT_EMPLOYEE_SQL = "INSERT INTO " +
-            "employee(employee_id,employee_name, employee_birthday, employee_id_card,employee_salary,employee_phone,employee_email,employee_address" +
+            "employee(employee_name, employee_birthday, employee_id_card,employee_salary,employee_phone,employee_email,employee_address" +
             ",position_id,education_degree_id,division_id,username) " +
-            "VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+            "VALUES(?,?,?,?,?,?,?,?,?,?,?)";
     private static final String SELECT_ALL_EMPLOYEE = "select * from employee";
     private static final String SELECT_EMPLOYEE_BY_NAME = "select * from employee where employee_name like ?";
     private static final String DELETE_EMPLOYEE_SQL = "delete from employee where employee_id = ?";
@@ -82,18 +81,18 @@ public class EmployeeDaoIml implements EmployeeDao {
     public void insertEmplyee(Employee emplyee) throws SQLException {
         try(Connection connection = getConnection();
             PreparedStatement statement = connection.prepareStatement(INSERT_EMPLOYEE_SQL)) {
-            statement.setInt(1,emplyee.getId());
-            statement.setString(2,emplyee.getName());
-            statement.setString(3,emplyee.getBirthday());
-            statement.setString(4,emplyee.getIdCard());
-            statement.setDouble(5,emplyee.getSalary());
-            statement.setString(6,emplyee.getPhone());
-            statement.setString(7,emplyee.getEmail());
-            statement.setString(8,emplyee.getAddress());
-            statement.setInt(9,emplyee.getPositionId());
-            statement.setInt(10,emplyee.getEducationDegreeId());
-            statement.setInt(11,emplyee.getDivisionId());
-            statement.setString(12,emplyee.getUserName());
+//            statement.setInt(1,emplyee.getId());
+            statement.setString(1,emplyee.getName());
+            statement.setString(2,emplyee.getBirthday());
+            statement.setString(3,emplyee.getIdCard());
+            statement.setDouble(4,emplyee.getSalary());
+            statement.setString(5,emplyee.getPhone());
+            statement.setString(6,emplyee.getEmail());
+            statement.setString(7,emplyee.getAddress());
+            statement.setInt(8,emplyee.getPositionId());
+            statement.setInt(9,emplyee.getEducationDegreeId());
+            statement.setInt(10,emplyee.getDivisionId());
+            statement.setString(11,emplyee.getUserName());
             statement.executeUpdate();
         }catch (SQLException e){
             e.printStackTrace();

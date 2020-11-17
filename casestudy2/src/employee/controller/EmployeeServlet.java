@@ -110,7 +110,7 @@ public class EmployeeServlet extends HttpServlet {
         int divisionId = Integer.parseInt(request.getParameter("divisionId"));
         String userName = request.getParameter("userName");
         try {
-            employeeService.insertEmplyee(new Employee(id,name,birthday,idCard,salary,phone,email,address,positionId,educationDegreeId,divisionId,userName));
+            employeeService.insertEmplyee(new Employee(name,birthday,idCard,salary,phone,email,address,positionId,educationDegreeId,divisionId,userName));
             listEmployee(request,response);
         } catch (SQLException e) {
             e.printStackTrace();

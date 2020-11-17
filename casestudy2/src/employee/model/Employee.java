@@ -17,6 +17,20 @@ public class Employee {
     public Employee() {
     }
 
+    public Employee(String name, String birthday, String idCard, double salary, String phone, String email, String address, int positionId, int educationDegreeId, int divisionId, String userName) {
+        this.name = name;
+        this.birthday = birthday;
+        this.idCard = idCard;
+        this.salary = salary;
+        this.phone = phone;
+        this.email = email;
+        this.address = address;
+        this.positionId = positionId;
+        this.educationDegreeId = educationDegreeId;
+        this.divisionId = divisionId;
+        this.userName = userName;
+    }
+
     public Employee(int id, String name, String birthday, String idCard, double salary, String phone, String email, String address, int positionId, int educationDegreeId, int divisionId, String userName) {
         this.id = id;
         this.name = name;

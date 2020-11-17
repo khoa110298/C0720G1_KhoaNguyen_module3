@@ -153,6 +153,7 @@
                 </c:forEach>
                 </tbody>
             </table>
+            <h2 style="text-align: center">${thanhcong}</h2>
         </div>
 
     </div>
@@ -224,10 +225,6 @@
             "pageLength": 5
         } );
     } );
-</script>
-
-
-<script>
     function editCustomer(id,typeId,name,birthday,gender,idCard,phone,email,address) {
         $('#id').val(id);
         $('#typeId').val(typeId);

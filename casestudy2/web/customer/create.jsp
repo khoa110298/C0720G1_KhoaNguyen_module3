@@ -31,7 +31,7 @@
 <%--                        <option value="5">menber</option>--%>
 
                         <c:forEach items="${customerTypeList}" var="customerType">
-                            <option value="${customerType.id}">${customerType.name}</option>
+                            <option value="${customerType.id}" ${typeId == customerType.id ? "selected" : ""}>${customerType.name}</option>
                         </c:forEach>
                     </select>
 
@@ -40,43 +40,47 @@
             <tr>
                 <th>Name:</th>
                 <td>
-                    <input type="text" name="name" id="name" size="45"/>
+                    <input value="${name}" type="text" name="name" id="name" size="45" required/>
                 </td>
             </tr>
             <tr>
                 <th>Birthday:</th>
                 <td>
-                    <input type="date" name="birthday" id="birthday" size="45"/>
+                    <input value="${birthday}" type="text" name="birthday" id="birthday" size="45" required/>
+                    <p style="color: red">${messageBirthDay} </p>
                 </td>
+
             </tr>
             <tr>
                 <th>Gender:</th>
                 <td>
-                    <input type="text" name="gender" id="gender" size="45"/>
+                    <input value="${gender}" type="text" name="gender" id="gender" size="45" required/>
                 </td>
             </tr>
             <tr>
                 <th>IdCard:</th>
                 <td>
-                    <input type="text" name="idCard" id="idCard" size="45"/>
+                    <input value="${idCard}" type="text" name="idCard" id="idCard" size="45"/>
                 </td>
             </tr>
             <tr>
                 <th>Phone:</th>
                 <td>
-                    <input type="text" name="phone" id="phone" size="45"/>
+                    <input value="${phone}" type="text" name="phone" id="phone" size="45"/>
+                    <p style="color: red">${messagePhone}</p>
                 </td>
             </tr>
             <tr>
                 <th>Email:</th>
                 <td>
-                    <input type="text" name="email" id="email" size="45"/>
+                    <input value="${email}" type="text" name="email" id="email" size="45"/>
+                    <p style="color: red">${messageEmail}</p>
                 </td>
             </tr>
             <tr>
                 <th>Address:</th>
                 <td>
-                    <input type="text" name="address" id="adress" size="45"/>
+                    <input value="${address}" type="text" name="address" id="adress" size="45"/>
                 </td>
             </tr>
             <tr>

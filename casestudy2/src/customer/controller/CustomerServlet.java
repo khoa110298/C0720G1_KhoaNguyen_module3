@@ -1,5 +1,9 @@
 package customer.controller;
 
+import customer.common.DateException;
+import customer.common.EmailException;
+import customer.common.PhoneException;
+import customer.common.Valtdate;
 import customer.model.Customer;
 import customer.service.CustomerService;
 import customer.service.CustomerServiceIml;
@@ -22,6 +26,7 @@ import java.util.List;
 public class CustomerServlet extends HttpServlet {
     CustomerService customerService = new CustomerServiceIml();
     CustomerTypeService customerTypeService = new CustomerTypeServiceTypeImpl();
+    Valtdate valtdate = new Valtdate();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html; charset=UTF-8");
@@ -77,17 +82,77 @@ public class CustomerServlet extends HttpServlet {
     }
 
     private void CreateCustomer(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+//        int id = customerService.getAllCustomer().get(customerService.getAllCustomer().size() - 1).getId() + 1;
+//        int typeId = Integer.parseInt(request.getParameter("typeId"));
+//        String name = request.getParameter("name");
+//        String birthday = request.getParameter("birthday");
+//        int gender = Integer.parseInt(request.getParameter("gender"));
+//        String idCard = request.getParameter("idCard");
+//        String phone = request.getParameter("phone");
+//        String email = request.getParameter("email");
+//        String address = request.getParameter("address");
+//        customerService.insertCustomer(new Customer(id, typeId, name, birthday, gender, idCard, phone, email, address));
+//        listCustomer(request, response);
+
+        boolean check = true;
+        String messagePhone= null;
+        String messageBirthDay = null;
+        String messageEmail = null;
+        String a = "crearte thanh cong";
+
         int id = customerService.getAllCustomer().get(customerService.getAllCustomer().size() - 1).getId() + 1;
         int typeId = Integer.parseInt(request.getParameter("typeId"));
         String name = request.getParameter("name");
-        String birthday = request.getParameter("birthday");
+        String birthday = null;
+        try {
+            birthday = request.getParameter("birthday");
+            valtdate.regexDate(birthday);
+        } catch (DateException e) {
+           messageBirthDay = e.getMessage();
+           check = false;
+        }
+
         int gender = Integer.parseInt(request.getParameter("gender"));
         String idCard = request.getParameter("idCard");
-        String phone = request.getParameter("phone");
-        String email = request.getParameter("email");
+        String phone = null;
+        try {
+             phone = request.getParameter("phone");
+             valtdate.regexPhone(phone);
+        } catch (PhoneException e) {
+            messagePhone = e.getMessage();
+            check = false;
+        }
+
+        String email = null;
+        try {
+            email = request.getParameter("email");
+            valtdate.regexEmail(email);
+        } catch (EmailException e) {
+           messageEmail = e.getMessage();
+           check = false;
+        }
         String address = request.getParameter("address");
-        customerService.insertCustomer(new Customer(id, typeId, name, birthday, gender, idCard, phone, email, address));
-        listCustomer(request, response);
+
+        if (!check){
+            request.setAttribute("typeId", typeId);
+            request.setAttribute("name", name);
+            request.setAttribute("birthday",birthday);
+            request.setAttribute("gender",gender);
+            request.setAttribute("idCard",idCard);
+            request.setAttribute("phone",phone);
+            request.setAttribute("email",email);
+            request.setAttribute("address",address);
+
+            request.setAttribute("messageBirthDay",messageBirthDay);
+            request.setAttribute("messagePhone",messagePhone);
+            request.setAttribute("messageEmail",messageEmail);
+            showCreateCustomer(request,response);
+        }else {
+            customerService.insertCustomer(new Customer(id, typeId, name, birthday, gender, idCard, phone, email, address));
+            request.setAttribute("thanhcong","update thanh cong");
+            listCustomer(request, response);
+        }
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

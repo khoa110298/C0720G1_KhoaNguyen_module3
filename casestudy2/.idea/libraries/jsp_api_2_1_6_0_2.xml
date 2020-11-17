@@ -1,9 +1,36 @@
 <component name="libraryTable">
   <library name="jsp-api-2.1-6.0.2">
+    <ANNOTATIONS>
+      <root url="file://$PROJECT_DIR$/../../modul3/phan_trang_anh_hiep/table_sortpage/bootstrap413" />
+      <root url="file://$PROJECT_DIR$/../../modul3/phan_trang_anh_hiep/table_sortpage/datatables" />
+      <root url="file://$PROJECT_DIR$/../../modul3/phan_trang_anh_hiep/table_sortpage/jquery" />
+    </ANNOTATIONS>
     <CLASSES>
       <root url="jar://D:/phammem/JDBC/user-manager-jdbc-master/web/WEB-INF/lib/jsp-api-2.1-6.0.2.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../modul3/phan_trang_anh_hiep/table_sortpage/bootstrap413" />
+      <root url="file://$PROJECT_DIR$/../../modul3/phan_trang_anh_hiep/table_sortpage/datatables" />
+      <root url="file://$PROJECT_DIR$/../../modul3/phan_trang_anh_hiep/table_sortpage/jquery" />
     </CLASSES>
-    <JAVADOC />
-    <SOURCES />
+    <JAVADOC>
+      <root url="file://$PROJECT_DIR$/../../modul3/phan_trang_anh_hiep/table_sortpage/bootstrap413" />
+      <root url="file://$PROJECT_DIR$/../../modul3/phan_trang_anh_hiep/table_sortpage/datatables" />
+      <root url="file://$PROJECT_DIR$/../../modul3/phan_trang_anh_hiep/table_sortpage/jquery" />
+    </JAVADOC>
+    <NATIVE>
+      <root url="file://$PROJECT_DIR$/../../modul3/phan_trang_anh_hiep/table_sortpage/bootstrap413" />
+      <root url="file://$PROJECT_DIR$/../../modul3/phan_trang_anh_hiep/table_sortpage/datatables" />
+      <root url="file://$PROJECT_DIR$/../../modul3/phan_trang_anh_hiep/table_sortpage/jquery" />
+    </NATIVE>
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../../modul3/phan_trang_anh_hiep/table_sortpage/bootstrap413" />
+      <root url="file://$PROJECT_DIR$/../../modul3/phan_trang_anh_hiep/table_sortpage/datatables" />
+      <root url="file://$PROJECT_DIR$/../../modul3/phan_trang_anh_hiep/table_sortpage/jquery" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/../../modul3/phan_trang_anh_hiep/table_sortpage/bootstrap413" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../../modul3/phan_trang_anh_hiep/table_sortpage/datatables" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../../modul3/phan_trang_anh_hiep/table_sortpage/jquery" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../../modul3/phan_trang_anh_hiep/table_sortpage/bootstrap413" recursive="false" type="SOURCES" />
+    <jarDirectory url="file://$PROJECT_DIR$/../../modul3/phan_trang_anh_hiep/table_sortpage/datatables" recursive="false" type="SOURCES" />
+    <jarDirectory url="file://$PROJECT_DIR$/../../modul3/phan_trang_anh_hiep/table_sortpage/jquery" recursive="false" type="SOURCES" />
   </library>
 </component>
