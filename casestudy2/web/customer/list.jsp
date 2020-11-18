@@ -97,7 +97,7 @@
                 </ul>
                 <form class="form-inline my-2 my-lg-0" method="post" action="/customer">
                     <input type="hidden" name="action" value="search">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="name">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search by name" aria-label="Search" name="name">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
             </div>

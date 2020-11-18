@@ -153,7 +153,7 @@
                 </c:forEach>
                 </tbody>
             </table>
-            <h2 style="text-align: center">${thanhcong}</h2>
+            <h2 style="text-align: center;color: yellow">${thanhcong}</h2>
         </div>
 
     </div>

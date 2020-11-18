@@ -40,13 +40,13 @@
             <tr>
                 <th>Name:</th>
                 <td>
-                    <input value="${name}" type="text" name="name" id="name" size="45"/>
+                    <input value="${name}" type="text" name="name" id="name" size="45" required/>
                 </td>
             </tr>
             <tr>
                 <th>Birthday:</th>
                 <td>
-                    <input value="${birthday}" type="text" name="birthday" id="birthday" size="45"/>
+                    <input value="${birthday}" type="text" name="birthday" id="birthday" size="45" required/>
                     <p style="color: red">${messageBirthDay} </p>
                 </td>
 
@@ -54,7 +54,7 @@
             <tr>
                 <th>Gender:</th>
                 <td>
-                    <input value="${gender}" type="text" name="gender" id="gender" size="45"/>
+                    <input value="${gender}" type="text" name="gender" id="gender" size="45" required/>
                 </td>
             </tr>
             <tr>

@@ -146,7 +146,7 @@ public class StudentServlet extends HttpServlet {
     private void showCreateStudent(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("student/create.jsp");
         dispatcher.forward(request,response);
-    }
+}
 
     private void showDeleteStudent(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
