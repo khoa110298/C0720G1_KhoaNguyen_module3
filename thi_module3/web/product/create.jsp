@@ -10,6 +10,8 @@
 <html>
 <head>
     <title>create product</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
 
@@ -20,59 +22,54 @@
 </center>
 <div align="center">
     <form method="post" action="/product">
+        <input type="hidden" name="action" value="create">
         <table border="1" cellpadding="5">
             <tr>
-                <th>ma muon sach:</th>
+                <th>name product:</th>
                 <td>
-                    <input type="text" name="mamuonsach" id="mamuonsach" size="45" required/>
-                </td>
-            </tr>
-            <tr>
-                <th>tensach:</th>
-                <td>
-                    <input type="text" name="tensach" id="tensach" size="45" required/>
-                </td>
+                    <input type="text" name="name" id="name" size="45" required/>
 
-            </tr>
-            <tr>
-                <th>ten hoc sinh:</th>
-                <td>
-                    <select name="tenhocsinh" >
-                        <option value="a">nguyen van a</option>
-                        <option value="b">nguyen van b</option>
-                        <option value="c">nguyen van c</option>
-                        <option value="d">nguyen van d</option>
-                    </select>
                 </td>
             </tr>
             <tr>
-                <th>ngay muon:</th>
+                <th>price:</th>
                 <td>
-                    <input type="date" name="tensach" id="ngaymuon" size="45" required/>
+                    <input type="text" name="price" id="price" size="45" required/>
                 </td>
+            </tr>
+            <tr>
+                <th>categoryId:</th>
+                <td>
+                   <select name="categoryId">
+                           <c:forEach items="${categoryList}" var="category">
+                               <option value="${category.getCategoryId()}">${category.getCategoryName()}</option>
+                           </c:forEach>
+                   </select>
+                </td>
+            </tr>
 
-            </tr>
-            <tr>
-                <th>ngay tra:</th>
-                <td>
-                    <input type="date" name="tensach" id="ngaytra" size="45" required/>
-                </td>
-
-            </tr>
             <tr>
                 <td colspan="2" align="center">
-                    <input type="submit" name= "action" value="muon sach"/>
-                </td>
-                <td colspan="2" align="center">
-                    <input type="button" name= "action" value="huy"/>
+                    <input type="submit" name= "action" value="save"/>
                 </td>
             </tr>
         </table>
     </form>
-    <h2><a href="/sach">
-        tro lai dach sach sach
+    <h2><a href="/product">
+        back to list product
     </a></h2>
 
 </div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>

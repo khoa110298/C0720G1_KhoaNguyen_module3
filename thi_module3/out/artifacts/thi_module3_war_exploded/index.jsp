@@ -15,12 +15,12 @@
     <link rel="stylesheet" href="datatables/css/dataTables.bootstrap4.min.css">
   </head>
   <body>
-  <nav class="navbar navbar-light bg-light">
-    <form method="post" action="/product" class="ml-auto row">
-      <input type="submit"  class="btn btn-info" value="search" name="action">
-      <input type="text" width="40"  class="form-control col-6" name="name" placeholder="Search by name">
-    </form>
-  </nav>
+<%--  <nav class="navbar navbar-light bg-light">--%>
+<%--    <form method="post" action="/product" class="ml-auto row">--%>
+<%--      <input type="submit"  class="btn btn-info" value="search" name="action">--%>
+<%--      <input type="text" width="40"  class="form-control col-6" name="name" placeholder="Search by name">--%>
+<%--    </form>--%>
+<%--  </nav>--%>
 
 <%--  <select name="typeId">--%>
 <%--                            <option value="1" selected>diamond</option>--%>
@@ -37,6 +37,19 @@
 <%--  <div class="valid-feedback">--%>
 <%--    Looks good!--%>
 <%--  </div>--%>
+<%--  <div class="valid-feedback">--%>
+<%--    Looks good!--%>
+<%--  </div>--%>
+<%--  <div class="invalid-feedback">--%>
+<%--    Please enter a email !!!--%>
+<%--  </div>--%>
+
+<%--<input
+        type="text"
+        name="username"
+        placeholder="Username"
+        pattern="[a-z]{1,15}"
+        title="Username should only contain lowercase letters. e.g. john">--%>
 
   <script src="jquery/jquery-3.5.1.min.js"></script>
   <script src="datatables/js/jquery.dataTables.min.js"></script>

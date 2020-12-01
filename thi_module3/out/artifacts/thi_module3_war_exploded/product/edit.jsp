@@ -14,54 +14,87 @@
 <body>
 <center>
     <h2>
-        <a href="/employee">List All Employee</a>
+        sua thong tin benh an
     </h2>
 </center>
 <div align="center">
-    <form method="post" action="/product">
+    <form method="post" action="/danhsachbenhan">
         <input type="hidden" name="action" value="edit">
         <table border="1" cellpadding="5">
-            <caption>
-                <h2>
-                    Edit Product
-                </h2>
-            </caption>
-<%--            <c:if test="${product != null}">--%>
-<%--                <input type="hidden" name="id" value="<c:out value='${product.id}' />"/>--%>
-<%--            </c:if>--%>
+            <%--            <c:if test="${product != null}">--%>
+            <%--                <input type="hidden" name="id" value="<c:out value='${product.id}' />"/>--%>
+            <%--            </c:if>--%>
 
             <tr>
-                <th>Id:</th>
+                <th>STT:</th>
                 <td>
                     <input type="text" name="id" size="45"
-                           value="<c:out value='${product.id}'/>" readonly/>
+                           value="<c:out value='${danhSachBenhAn.STT}'/>" readonly/>
                 </td>
             </tr>
             <tr>
-                <th>Name:</th>
+                <th>ma benh an:</th>
                 <td>
-                    <input type="text" name="name" size="45"
-                           value="<c:out value='${product.name}' />"/>
+                    <input type="text" name="maBenhAn" size="45"
+                           value="<c:out value='${danhSachBenhAn.idBenhAn}'/>" readonly/>
                 </td>
             </tr>
-            <tr>
-                <th>price:</th>
-                <td>
-                    <input type="text" name="price" size="45"
-                           value="<c:out value='${product.price}' />"/>
-                </td>
-            </tr>
-            <tr>
-                <th>categoryId:</th>
-                <td>
-                    <input type="text" name="categoryId" size="45"
-                           value="<c:out value='${product.categoryId}' />"/>
-                </td>
-            </tr>
+                <tr>
+                    <th>ma benh nhan:</th>
+                    <td>
+                        <input type="text" name="maBenhNhan" size="45"
+                               value="<c:out value='${danhSachBenhAn.idBenhNhan}'/>" readonly/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>ten benh nhan:</th>
+                    <td>
+                        <input type="text" name="tenbanhnhan" size="45" pattern="\\{D}+"
+                               title="khong duoc so">
+                               value="<c:out value='${danhSachBenhAn.tenBenhNhan}'/>"
+                    </td>
+                </tr>
+                <tr>
+                    <th>ngay nhap vien:</th>
+                    <td>
+                        <input type="date" name="ngayNhapVien" size="45"
+                               value="<c:out value='${danhSachBenhAn.ngayNhapVien}'/>   " />
+                    </td>
+                </tr>
+                <tr>
+                    <th>ngay ra vien:</th>
+                    <td>
+                        <input type="date" name="ngayRaVien" size="45"
+                               value="<c:out value='${danhSachBenhAn.ngayRaVien}'/>" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>ly do:</th>
+                    <td>
+                        <input type="text" name="lyDo" size="45"
+                               value="<c:out value='${danhSachBenhAn.lyDo}'/>" readonly/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>phuong phap dieu tri: </th>
+                    <td>
+                        <input type="text" name="maBenhAn" size="45"/>" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>bac si dieu tri:</th>
+                    <td>
+                        <input type="text" name="maBenhAn" size="45" />
+                    </td>
+                </tr>
+
 
             <tr>
                 <td colspan="2" align="center">
                     <input type="submit" value="Save"/>
+                </td>
+                <td colspan="2" align="center">
+                    <a href="/danhsachbenhan">tro lai</a>
                 </td>
             </tr>
         </table>
